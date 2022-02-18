@@ -45,7 +45,7 @@ update_distribution() {
 
 CORE_URLS=
 fetch_core_urls() {
-    local MISTER_URL="https://github.com/MiSTer-devel/Main_MiSTer"
+    local MISTER_URL="https://github.com/blackwine/Main_MiSTer"
     CORE_URLS="user-content-mra-alternatives"$'\n'"https://github.com/MiSTer-devel/MRA-Alternatives_MiSTer"
     CORE_URLS=${CORE_URLS}$'\n'$(curl -sSLf "$MISTER_URL/wiki"| awk '/user-content-fpga-cores/,/user-content-development/' | grep -ioE '(https://github.com/[a-zA-Z0-9./_-]*[_-]MiSTer/tree/[a-zA-Z0-9-]+)|(https://github.com/[a-zA-Z0-9./_-]*[_-]MiSTer)|(user-content-[a-zA-Z0-9-]*)')
     local MENU_URL=$(echo "${CORE_URLS}" | grep -io 'https://github.com/[a-zA-Z0-9./_-]*Menu_MiSTer')
